@@ -1,0 +1,8 @@
+- hosts: all
+  vars:
+    packagename: httpd
+      
+  tasks:
+  - name: Ansible Dictionary Example
+    debug:
+      msg: "{{ packagename }}"

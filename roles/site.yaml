@@ -1,0 +1,5 @@
+---
+- hosts: linuxx
+  roles: 
+   - webservers
+   

@@ -1,0 +1,14 @@
+- hosts: all
+  vars:
+    httpd:
+      Designer: 'Guido van Rosum'
+      Developer: 'Python Software Foundation'
+      OS: 'Cross-platform'
+  tasks:
+  - name: Ansible Dictionary Example
+    debug:
+      msg: "{{ httpd }}"
+  - name: Ensure that Apache is installed
+    yum: name=httpd state=present
+  - name: Start Apache Services
+    service: name=httpd enabled=yes state=started

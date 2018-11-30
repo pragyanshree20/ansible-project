@@ -1,0 +1,12 @@
+---
+- hosts: web
+  sudo: yes
+
+  tasks:
+  - include: playbkko1.yaml
+  - include: playbook2.yaml
+  - include: playbook3.yaml
+  - include: playbook4.yaml
+  - include: playbook6.yaml
+  - include: playbook7.yaml
+

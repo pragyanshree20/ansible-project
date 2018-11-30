@@ -1,0 +1,7 @@
+---
+- hosts: web
+  sudo: yes
+
+  tasks:
+  - file: dest=/var/www/html name=index.html state=touch
+

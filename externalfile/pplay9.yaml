@@ -1,0 +1,12 @@
+- hosts: all
+  vars_files:
+  - "test.yaml"
+      
+  tasks:
+  - name: Ansible Dictionary Example
+    debug:
+      msg: "{{ packagename }}"
+  - name: Ensure that Apache is installed
+    yum: name={{packagename}} state=present
+  - name: Start Apache Services
+    service: name={{packagename}} enabled=yes state=started

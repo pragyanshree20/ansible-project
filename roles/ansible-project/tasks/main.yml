@@ -1,0 +1,31 @@
+---
+# tasks file for ansible-project
+- name: Ensure that Apache is installed
+  yum: name={{packagename}} state=present
+  when: ansible_os_family == "RedHat"
+- name: Start Apache Services
+  service: name={{packagename}} enabled=yes state=started
+  when: ansible_os_family == "RedHat"
+- name: Copy Site Files
+  template: src=templates/index.j2 dest=/var/www/html
+- name: Copy Site Files confg
+  template: src=templates/httpd.j2 dest=/etc/httpd/conf/httpd.conf
+  notify:
+    - restart apache
+- name: Executing a script
+  copy:
+      src: files/test.sh
+      dest: /tmp/test.sh
+      mode: 0644
+- script: files/test.sh
+- name: Install common software requirements
+  yum: name={{item}} state=present
+  with_items:
+     - git
+     - vim
+#- name: Output of shell script should register into vars
+#  shell: "ls *.sh"
+#  register: with_output
+#- shell: "cp {{ item }} {{item}}_bkp"
+#  with_items:
+#      - "{{ with_output.stdout_lines }}"

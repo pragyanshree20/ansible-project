@@ -1,0 +1,7 @@
+---
+# vars file for ansible-project
+packagename: httpd
+companyname: deloitte
+yourname: pragyan
+age: 21
+emailaddress: mpragyan96@gmail.com
